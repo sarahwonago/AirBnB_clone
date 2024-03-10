@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Base model module """
+"""Module for Base model"""
 
 import uuid
 from datetime import datetime
@@ -14,7 +14,7 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """
-        It initialises the basemodel class
+        initialises the basemodel class
 
         """
         dateobject = '%Y-%m-%dT%H:%M:%S.%f'
@@ -40,7 +40,7 @@ class BaseModel:
 
     def save(self):
         """
-        updates the public instance attribute updated at to the current
+        updates the public instance attribute updated_at to the current
         date time
 
         """

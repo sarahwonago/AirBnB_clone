@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-"""
-Initialization script for the models directory.
-"""
+""" Creates a unique FileStorage instance for your application """
 
 from models.engine.file_storage import FileStorage
-
 
 storage = FileStorage()
 storage.reload()

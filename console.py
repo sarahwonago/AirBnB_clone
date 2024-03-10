@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Define HBnB console."""
+"""Module for HBnB console."""
 import cmd
 import re
 from shlex import split
@@ -14,9 +14,9 @@ from models.review import Review
 
 
 def parse(arg):
-    curly_braces = re.search(r"\{(.*?)\}", arg)
+    c_b = re.search(r"\{(.*?)\}", arg)
     brackets = re.search(r"\[(.*?)\]", arg)
-    if curly_braces is None:
+    if c_b is None:
         if brackets is None:
             return [i.strip(",") for i in split(arg)]
         else:
@@ -25,9 +25,9 @@ def parse(arg):
             retl.append(brackets.group())
             return retl
     else:
-        lexer = split(arg[:curly_braces.span()[0]])
+        lexer = split(arg[:c_b.span()[0]])
         retl = [i.strip(",") for i in lexer]
-        retl.append(curly_braces.group())
+        retl.append(c_b.group())
         return retl
 
 

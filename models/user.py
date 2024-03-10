@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines User class."""
+"""Module for User class."""
 from models.base_model import BaseModel
 
 

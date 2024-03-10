@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Module for HBnB console."""
+"""Module for HBNB console/cmd."""
+
 import cmd
 import re
 from shlex import split

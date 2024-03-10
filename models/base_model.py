@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for Base model"""
+"""Module for BaseModel class"""
 
 import uuid
 from datetime import datetime
@@ -8,23 +8,23 @@ import models
 
 class BaseModel:
     """
-    A class that defines all common attributes/methods of other classes
-
+    A class that defines all common attributes/methods 
+    
     """
 
     def __init__(self, *args, **kwargs):
         """
-        initialises the basemodel class
+        initializes the basemodel class
 
         """
-        dateobject = '%Y-%m-%dT%H:%M:%S.%f'
+        dte = '%Y-%m-%dT%H:%M:%S.%f'
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
         if len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
-                    self.__dict__[key] = datetime.strptime(value, dateobject)
+                    self.__dict__[key] = datetime.strptime(value, dte)
                 else:
                     self.__dict__[key] = value
         else:
@@ -49,11 +49,11 @@ class BaseModel:
 
     def to_dict(self):
         """
-        Returns a dictionary containing all keys/values of __dict__
+        Returns a dictionary representation
 
         """
-        our_dict = self.__dict__.copy()
-        our_dict["__class__"] = self.__class__.__name__
-        our_dict["created_at"] = self.created_at.isoformat()
-        our_dict["updated_at"] = self.updated_at.isoformat()
-        return our_dict
+        my_dict = self.__dict__.copy()
+        my_dict["__class__"] = self.__class__.__name__
+        my_dict["created_at"] = self.created_at.isoformat()
+        my_dict["updated_at"] = self.updated_at.isoformat()
+        return my_dict

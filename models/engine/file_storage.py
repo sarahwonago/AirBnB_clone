@@ -13,7 +13,7 @@ from models.review import Review
 
 class FileStorage:
     """
-    serializes instances to JSON file and vice versa
+    Serializes instances to JSON file and vice versa
 
     private class attributes:
         __file_path: string file to JSON file
@@ -23,12 +23,12 @@ class FileStorage:
     __objects = {}
 
     def all(self):
-        """ returns dictionary __objects """
+        """ returns dictionary of __objects """
         return FileStorage.__objects
 
     def new(self, obj):
         """
-        sets in __objects the object with key <obj class name>.id
+        sets in the object with key <obj class name>.id
         Attributes:
             obj: <obj class name>.id
         """
@@ -38,8 +38,8 @@ class FileStorage:
 
     def save(self):
         """ serializes __objects to the JSON file(path: __file_path """
-        ourdict = FileStorage.__objects
-        our_dict = {obj: ourdict[obj].to_dict() for obj in ourdict.keys()}
+        mydict = FileStorage.__objects
+        our_dict = {obj: mydict[obj].to_dict() for obj in mydict.keys()}
 
         with open(FileStorage.__file_path, "w") as write_file:
             json.dump(our_dict, write_file)
